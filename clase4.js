@@ -6,9 +6,11 @@ console.log(document);
 // - querySelectorAll()
 
 // Obtenemos el titulo principal
-const titulo = document.querySelector('h1');
+const titulo = document.querySelector("h1");
+
 // Ahora vayamos a la consola y despleguemos la flecha que nos muestra todas las propiedades del nodo
 console.log(titulo);
+titulo.innerText="Soy un título cambiado"
 
 // nos traemos ahora un listado de nodos 👇
 const itemsMenu = document.querySelectorAll('li');
@@ -21,7 +23,7 @@ console.log(infoExtra);
 /* ------------------------------- Practicando ------------------------------ */
 // Seleccionamos la lista de noticias y revisamos su informacion interna.
 // Aprovechamos que la NodeList es un ITERABLE, entonces podemos recorrerla.
-// 🚩 No es un Array.
+// 🚩🚩🚩 No es un Array 🚩🚩🚩
 const articulos = document.querySelectorAll('article');
 
 for (let i = 0; i < articulos.length; i++) {
@@ -42,4 +44,10 @@ articulos.forEach( articulo =>{
 // 1 - Escribir un selector para cada elemento del sitio.
 // 2 - Plasmarlo en un diagrama de árbol como la consigna: https://docs.google.com/document/d/15nGvKkEcbrRgwqV50ISh0QYZ_TO67vmWQaLfNpUxqjs/preview
 
-
+//Algunos ejemplos
+const temaNoticia = document.querySelector('.tema') //Traemos una clase
+const tercerArticulo = document.getElementById('articulo-3')
+const tercerArt = document.querySelector('#articulo-3')
+const parrafos = document.querySelectorAll('p')
+const parrafoUno = document.querySelectorAll('.noticias p')
+parrafoUno[1].innerText  = "noticia modificada"

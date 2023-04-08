@@ -1,18 +1,19 @@
 const listadoNoticias = [{
-        titulo: "La emoción de Lisandro Martínez",
-        epigrafe: "La increíble ovación de los hinchas de Manchester United al defensor argentino: 'Quise llorar'.",
-        foto: "./img/futbol.webp"
-    },
-    {
-        titulo: "La renuncia de Liz Truss",
-        epigrafe: "Boris Johnson interrumpió sus vacaciones y vuelve a sonar fuerte entre los posibles sucesores.",
-        foto: "./img/boris.webp"
-    },
-    {
-        titulo: "Los motivos",
-        epigrafe: "Una escuela argentina fue elegida entre las diez mejores del mundo.",
-        foto: "./img/escuela.webp"
-    }
+
+    titulo: "La emoción de Lisandro Martínez",
+    epigrafe: "La increíble ovación de los hinchas de Manchester United al defensor argentino: 'Quise llorar'.",
+    foto: "./img/futbol.webp"
+},
+{
+    titulo: "La renuncia de Liz Truss",
+    epigrafe: "Boris Johnson interrumpió sus vacaciones y vuelve a sonar fuerte entre los posibles sucesores.",
+    foto: "./img/boris.webp"
+},
+{
+    titulo: "Los motivos",
+    epigrafe: "Una escuela argentina fue elegida entre las diez mejores del mundo.",
+    foto: "./img/escuela.webp"
+}
 ]
 
 // Vamos a trabajar con nodos de manera dinámica, sobre todo crearlos desde JS en vez de que estén estáticos en el HTML
@@ -24,18 +25,16 @@ const listadoNoticias = [{
 /* -------------------------- PRACTICANDO ATRIBUTOS ------------------------- */
 // Completemos correctamente el 'alt' de cada imagen con la frase "miniatura de noticia"
 
-const imagenes = document.querySelectorAll('.noticias article img');
-console.log(imagenes);
-console.log("alt: "+imagenes[0].getAttribute('alt')) //vemos que está vacío
-// rellenamos el atributo👇
-imagenes[0].setAttribute('alt', 'miniatura de noticia');
-console.log("alt: "+imagenes[0].getAttribute('alt')) // ahora vemos que es un texto
 
+// const imagenes = document.querySelectorAll(".noticias article img")
+// console.log(imagenes);
+// console.log("alt: " + imagenes[0].getAttribute("alt")) //vemos que está vacío
+
+// // rellenamos el atributo👇
 // Hagamoslo más dinámico y recorramos todas las imagenes👇
-for (let i = 0; i < imagenes.length; i++) {
-    imagenes[i].setAttribute('alt', 'miniatura de noticia');
-    console.log(imagenes[i])
-}
+// for (let i = 0; i < imagenes.length; i++) {
+//     imagenes[i].setAttribute("alt", "Miniatura noticias")
+// }
 
 
 /* ---------------------- PRACTICANDO CREACION DE NODOS --------------------- */
@@ -43,31 +42,31 @@ for (let i = 0; i < imagenes.length; i++) {
 // 2- Comentamos la parte de este código de "Practicando atributos"
 // 3- Vamos a crear de a uno e insertarlos en el HTML usando un bucle👇
 
-const main = document.querySelector('main');
 
-listadoNoticias.forEach(noticia => {
-    // creamos los elementos👇
-    const article = document.createElement('article');
-    const h2 = document.createElement('h2');
-    const img = document.createElement('img');
-    const p = document.createElement('p');
+// const main = document.querySelector("main");
 
-    // completamos los nodos con sus propiedades👇
-    h2.innerText = noticia.titulo
-    img.setAttribute('src', noticia.foto)
-    img.setAttribute('alt', "miniatura de noticia")
-    p.innerText = noticia.epigrafe
+// listadoNoticias.forEach(noticia => {
+//     // creamos los elementos vacios👇
+//     const article = document.createElement("article");
+//     const h2 = document.createElement("h2");
+//     const img = document.createElement("img");
+//     const p = document.createElement("p");
 
-    // armamos los nodos dentro de donde van👇
-    article.appendChild(h2)
-    article.appendChild(img)
-    article.appendChild(p)
+//     // completamos los nodos con sus propiedades👇
+//     h2.innerText = noticia.titulo
+//     img.setAttribute("src", noticia.foto)
+//     img.setAttribute("alt", "miniatura de noticia")
+//     p.innerText = noticia.epigrafe
 
-    // finalmente lo insertamos en el HTML👇
-    main.appendChild(article)
+//     // armamos los nodos dentro de donde van👇
+//     article.appendChild(h2)
+//     article.appendChild(img)
+//     article.appendChild(p)
 
-})
+//     // finalmente lo insertamos en el main👇
+//     main.appendChild(article)
 
+// })
 
 
 /* -------------------------------------------------------------------------- */
@@ -83,6 +82,24 @@ listadoNoticias.forEach(noticia => {
 
 function renderizandoElementos() {
     // desarrollar la consigna aquí
+
+    const main = document.querySelector("main");
+
+
+    listadoNoticias.forEach((noticia) => {
+
+        main.innerHTML +=
+
+            `
+    <article>
+             <h2>${noticia.titulo}</h2> 
+             <img src="${noticia.foto}" alt="foto_noticia">
+             <p>${noticia.epigrafe}</p>
+    </article>
+    `
+    })
+
+
 
 
 }

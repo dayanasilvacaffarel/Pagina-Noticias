@@ -5,7 +5,7 @@
 
 const sitio = document.querySelector('body');
 const btnTema = document.querySelector('.tema button')
-const menuItems =  document.querySelectorAll('nav li');
+const menuItems = document.querySelectorAll('nav li');
 const contenedorNoticias = document.querySelector('main');
 const articulos = document.querySelectorAll('article');
 const titulos = document.querySelectorAll('article h2');
@@ -13,8 +13,9 @@ const titulos = document.querySelectorAll('article h2');
 /* ---------------------------- Editado los ITEMS --------------------------- */
 // 👇acá podemos ver todas las propiedades CSS que podemos modificar con JS
 console.log(menuItems[0].style)
+
 // agregamos manualmente nuevos estilos en el menú
-menuItems.forEach( item => {
+menuItems.forEach(item => {
     item.style.textTransform = "uppercase";
     item.style.color = "aqua";
     item.style.backgroundColor = "rgba(255,255,255,0.2";
@@ -26,20 +27,19 @@ console.log(contenedorNoticias)
 /* ----------------------------- Editando clases ---------------------------- */
 
 // vamos probando uno a uno los métodos
-console.log(sitio.classList)
+// console.log(sitio.classList)
 
-console.log(sitio.classList.contains('dark'))
-console.log(sitio.classList)
+// console.log(sitio.classList.contains('dark'))
+// console.log(sitio.classList)
 
-console.log(sitio.classList.add('dark'))
-console.log(sitio.classList)
+// console.log(sitio.classList.add('dark'))
+// console.log(sitio.classList)
 
-console.log(sitio.classList.add('remove'))
-console.log(sitio.classList)
+// console.log(sitio.classList.add('remove'))
+// console.log(sitio.classList)
 
-console.log(sitio.classList.toggle('remove'))
-console.log(sitio.classList)
-
+// console.log(sitio.classList.toggle('remove'))
+// console.log(sitio.classList)
 
 
 /* -------------------------------------------------------------------------- */
@@ -49,8 +49,18 @@ console.log(sitio.classList)
 // 1- Desarrollar la función a continuacion para que el usuario elija el tema del sitio.
 // 2- Debemos preguntarle al usuario mediante un confirm si desea usar el modo oscuro.
 // 3- Si el usuario confirma debemos aplicar la clase "dark" al "sitio", si cancela debe quedar en modo claro.
-// 4- A su vez, si está en modo onsecuritypolicyviolation, el texto del boton debe decir "Cambiar a modo claro 🌞". De lo contrario, si está en modo claro debeb decir "Cambiar a modo oscuro 🌛"
-function elegirTema() {
-    
+// 4- A su vez, si está en modo oscuro, el texto del boton debe decir "Cambiar a modo claro 🌞". 
+//    De lo contrario, si está en modo claro debeb decir "Cambiar a modo oscuro 🌛"
+function elegirTema(){
+
+    const temaOscuro = confirm("desea cambiar a modo oscuro?")
+
+    if(temaOscuro){
+        sitio.classList.add('dark');
+        btnTema.innerText = 'Modo claro 🌞';
+    } else{
+        btnTema.innerText = 'Modo oscuro 🌛';
+    }
+
 }
 elegirTema();
